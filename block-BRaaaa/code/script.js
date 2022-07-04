@@ -1,50 +1,39 @@
-let form = document.querySelector("form");
-let ul = document.querySelector("ul");
-let input = document.querySelector("input");
-let movies = [];
+let form = document.querySelector('form');
+let displayData = document.querySelector('.display');
+let movieDetails = [{}];
 
-function deleteMovie(event) {
-  let id = event.target.dataset.id;
-  movies.splice(id, 1);
-  event.target.parentElement.remove();
-}
-
-function handleSubmit(event) {
+function handleInput(event) {
   event.preventDefault();
-  let movie = event.target.elements.movieInput.value;
-
-  // Create Array
-  movies.push({
-    name: movie,
-    watched: false,
-  });
-  console.log(movies);
-
-  // Create UI
-  ul.innerHTML = "";
-  movies.forEach((movie, i) => {
-    let li = document.createElement("li");
-    let checkbox = document.createElement("input");
-    let label = document.createElement("label");
-    let icon = document.createElement("i");
-    checkbox.style.marginRight = "1rem";
-    checkbox.type = "checkbox";
-    checkbox.id = i;
-    label.for = i;
-    checkbox.checked = movies.watched;
-    label.innerText = movie.name;
-    icon.style.color = "red";
-    icon.style.marginLeft = "2.5rem";
-    icon.setAttribute("data-id", i);
-    icon.classList.add("fas", "fa-times");
-    li.append(checkbox, label, icon);
-    li.classList.add("flex", "justify-start", "align-center");
-    ul.append(li);
-
-    input.value = "";
-    // Deleting Movie
-    icon.addEventListener("click", deleteMovie);
-  });
+  movieDetails.movie = form.elements.movie.value;
+  console.log(form.elements.movie.value);
+  createUi();
 }
 
-form.addEventListener("submit", handleSubmit);
+function createUi() {
+  let insideDisplay = document.createElement('div');
+  insideDisplay.classList.add('insideDisplay');
+
+  let movieName = document.createElement('h3');
+  movieName.innerHTML = movieDetails.movie;
+  movieName.classList.add('movieName');
+  movieName.style.marginLeft = '2rem';
+
+  let watchedButton = document.createElement('button');
+  watchedButton.innerHTML = 'To watch';
+  watchedButton.classList.add('watchedButton');
+  watchedButton.style.marginLeft = '2rem';
+  watchedButton.addEventListener('click', () => {
+    if (watchedButton.innerHTML == 'To watch') {
+      watchedButton.innerHTML = 'Watched';
+    } else if (watchedButton.innerHTML == 'Watched') {
+      watchedButton.innerHTML = 'To watch';
+    }
+  });
+
+  insideDisplay.append(movieName, watchedButton);
+  displayData.append(insideDisplay);
+
+  form.elements.movie.value = '';
+}
+
+form.addEventListener('submit', handleInput);

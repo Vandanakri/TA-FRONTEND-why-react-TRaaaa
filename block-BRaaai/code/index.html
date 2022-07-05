@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!--Title-->
+  <title>Card</title>
+    <!--Stylesheet-->
+  <link rel="stylesheet" href="./style.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"/>
+   <!--Font Awesome-->
+  <script src="https://kit.fontawesome.com/2ef76ba143.js" crossorigin="anonymous"></script>
+  
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./data.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    let card = (
+      <>
+        <img className="image" src={cardInfo.imageURL} alt="" />
+          <div className="category"> {cardInfo.category.toUpperCase()}</div>
+          <div className="date"> {cardInfo.date.getDate()}
+            <small>
+              {cardInfo.date.toLocaleString('default', { month: 'long' }).slice(0, 3).toUpperCase()}
+            </small>
+          </div>
+          <h1>{cardInfo.title}</h1>
+          <strong>{cardInfo.subTitle}</strong>
+          <p>{cardInfo.description}</p>
+          <div>
+            <span>
+              <i class="far fa-clock"></i> 6 minutes ago{' '}
+            </span>
+            <span>
+              <i class="fas fa-comments"></i>
+              {cardInfo.comments} comments
+            </span>
+          </div>
+        </>
+
+        );
+        ReactDOM.render(card, document.getElementById('root'));
+  </script>
+
+</body>
+
+</html>

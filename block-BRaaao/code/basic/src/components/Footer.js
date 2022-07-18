@@ -1,17 +1,10 @@
-import '../styles/header.css';
-
 function Footer() {
   return (
-    <div className="header">
-      <ul>
-        <li>Logo</li>
-      </ul>
       <ul className="flex">
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
+        <li>Facebook</li>
+        <li>Twitter</li>
+        <li>Instagram</li>
       </ul>
-    </div>
   );
 }
 

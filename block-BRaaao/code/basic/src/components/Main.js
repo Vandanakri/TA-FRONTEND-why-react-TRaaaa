@@ -1,10 +1,10 @@
-import data from "../data";
+import data from "../data/data.js";
 
-function Main (){
+function Main(){
     return (
         <div className="main">
             {data.map((article) => {
-                return <Card key={article.title} info={article} />
+                return <Card key={article.author} info={article} />
             })}
         </div>
     );

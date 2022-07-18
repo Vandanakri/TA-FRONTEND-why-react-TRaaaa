@@ -1,18 +1,18 @@
-function Greet(props) {
+function Name(props) {
   let arr = ['Arya', 'John', 'Bran'];
+  
   function handleClick(name) {
     return alert(`Hello ${name}`);
   }
   return (
     <>
       <section className="section">
-        <h2>Greet</h2>
         <div>
-          {arr.map((elm, i) => {
+          {arr.map((elm, name) => {
             return (
               <button
                 className="btn"
-                key={i} onClick={() => handleClick(elm)}>
+                key={name} onClick={() => handleClick(elm)}>
                 {elm}
               </button>
             );
@@ -23,4 +23,4 @@ function Greet(props) {
   );
 }
 
-export default Greet;
+export default Name;

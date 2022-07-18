@@ -1,4 +1,4 @@
-function Hero(props) {
+function Clickme(props) {
   function handleClick() {
       return alert('Hello React Event');
   }
@@ -15,4 +15,4 @@ function Hero(props) {
   );
 }
 
-export default Hero;
+export default Clickme;

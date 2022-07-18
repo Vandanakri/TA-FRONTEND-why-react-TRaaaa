@@ -11,7 +11,6 @@ function Fruit(props) {
   return (
     <>
     <section className="section">
-      <h2>Greet</h2>
       <div>
         {fruits.map((element,i)=>{
           return (

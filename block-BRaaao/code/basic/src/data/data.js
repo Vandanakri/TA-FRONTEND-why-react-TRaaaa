@@ -1,4 +1,4 @@
-var data = [
+let data = [
   {
     author: 'Omkar Godbole',
     title:

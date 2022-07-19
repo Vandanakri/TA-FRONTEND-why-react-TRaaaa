@@ -1,4 +1,4 @@
-import colors from '../data/colors.json';
+import colors from '../data/data.json';
 import Color from './Color';
 
 function Colors(props) {
